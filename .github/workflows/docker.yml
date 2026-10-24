@@ -27,7 +27,7 @@ jobs:
         id: set_global_params
         run: |
           echo "default_branch=main" >> "$GITHUB_OUTPUT"
-          core_release_version=$(nslookup api.github.com 8.8.4.4 | grep '^Address:' | grep -v 8.8.4.4 | sed 's/Address: //g' | head -n1 | xargs -I{} curl -ks --resolve api.github.com:443:{} "https://api.github.com/repos/DTCproto/NG/releases" | grep "tag_name" | head -n 1 | sed 's/\"//g;s/,//g;s/ //g;s/tag_name://g' | xargs -i echo '{}')
+          core_release_version=$(nslookup api.github.com 8.8.4.4 | grep '^Address:' | grep -v 8.8.4.4 | sed 's/Address: //g' | head -n1 | xargs -I{} curl -ks --resolve api.github.com:443:{} "https://api.github.com/repos/DTCproto/NG-build/releases" | grep "tag_name" | head -n 1 | sed 's/\"//g;s/,//g;s/ //g;s/tag_name://g' | xargs -i echo '{}')
           echo "core_release_version=${core_release_version}" >> "$GITHUB_OUTPUT"
 
       - name: set lower case name

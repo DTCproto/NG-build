@@ -42,7 +42,7 @@ FILE_NAME="Xray-linux-${CPU_TYPE_FILE_NAME}${AVX_EXT_FILE_NAME}"
 # 定义版本变量
 V2_RELEASE_ACCOUNT="DTCproto"
 V2_RELEASE_REPO="NG"
-V2_RELEASE_VERSION=$(nslookup api.github.com 8.8.4.4 | grep '^Address:' | grep -v 8.8.4.4 | sed 's/Address: //g' | head -n1 | xargs -I{} curl -ks --resolve api.github.com:443:{} "https://api.github.com/repos/DTCproto/NG/releases" | grep "tag_name" | head -n 1 | sed 's/\"//g;s/,//g;s/ //g;s/tag_name://g' | xargs -i echo '{}')
+V2_RELEASE_VERSION=$(nslookup api.github.com 8.8.4.4 | grep '^Address:' | grep -v 8.8.4.4 | sed 's/Address: //g' | head -n1 | xargs -I{} curl -ks --resolve api.github.com:443:{} "https://api.github.com/repos/DTCproto/NG-build/releases" | grep "tag_name" | head -n 1 | sed 's/\"//g;s/,//g;s/ //g;s/tag_name://g' | xargs -i echo '{}')
 
 X_RELEASE_ACCOUNT="XTLS"
 X_RELEASE_REPO="Xray-core"
